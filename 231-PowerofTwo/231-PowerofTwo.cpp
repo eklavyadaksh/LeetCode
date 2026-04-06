@@ -1,15 +1,14 @@
-// Last updated: 06/04/2026, 17:34:25
+// Last updated: 06/04/2026, 18:24:16
 1class Solution {
 2public:
-3    void rotate(vector<int>& nums, int k) {
-4        int n=nums.size();
-5        vector<int> temp(n);
-6        for(int i=0;i<n;i++){
-7        
-8            temp[(i+k)%n]=nums[i];
-9        }
-10        for(int i=0;i<n;i++){
-11            nums[i]=temp[i];
-12        }
-13    }
-14};
+3    bool check(vector<int>& nums) {
+4        int count=0;
+5        if(is_sorted(nums.begin(),nums.end()))
+6        return true;
+7        for(int i=1;i<nums.size();i++){
+8            if(nums[i-1]>nums[i])
+9            count++;
+10            if(nums[nums.size()-1]>nums[0])
+11             count++;
+12        } return count==1;}
+13};
