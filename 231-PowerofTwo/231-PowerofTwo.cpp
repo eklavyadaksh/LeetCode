@@ -1,12 +1,15 @@
-// Last updated: 06/04/2026, 17:09:21
+// Last updated: 06/04/2026, 17:34:25
 1class Solution {
 2public:
-3    bool isPowerOfTwo(int n) {
-4       for(int i=0;i<31;i++) {
-5        int ans=pow(2,i);
-6        if(ans==n)
-7         return true;
-8        
-9       }
-10  return false;  }
-11};
+3    void rotate(vector<int>& nums, int k) {
+4        int n=nums.size();
+5        vector<int> temp(n);
+6        for(int i=0;i<n;i++){
+7        
+8            temp[(i+k)%n]=nums[i];
+9        }
+10        for(int i=0;i<n;i++){
+11            nums[i]=temp[i];
+12        }
+13    }
+14};
