@@ -1,11 +1,21 @@
-// Last updated: 6/17/2026, 12:11:33 PM
+// Last updated: 6/17/2026, 12:36:09 PM
 1class Solution {
 2public:
 3    vector<int> sortedSquares(vector<int>& nums) {
 4        vector<int> op(nums.size());
-5        for(int i=0;i<nums.size();i++){
-6                op[i]=nums[i]*nums[i];
-7        }
-8        sort(op.begin(),op.end());
-9    return op;}
-10};
+5        int left=0,right=nums.size()-1;
+6        int idx=nums.size()-1;
+7        while(left<=right){
+8            if(abs(nums[left])<abs(nums[right])){
+9              op[idx]=nums[right]*nums[right];
+10              right--;
+11              }
+12
+13            else {
+14             op[idx]=nums[left]*nums[left];
+15             left++;
+16            }  
+17            idx--;  
+18        }
+19       return op; }
+20};
